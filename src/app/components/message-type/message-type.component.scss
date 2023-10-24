@@ -1,0 +1,30 @@
+.message_type {
+  position: relative;
+  border-top: 1px solid #c4c4c4;
+
+  .message_type_input input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: #ffffff;
+    min-height: 48px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .message_send_btn {
+    background: #c2185b none repeat;
+    border: medium none;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+    height: 33px;
+    position: absolute;
+    right: 0;
+    top: 11px;
+    width: 33px;
+  }
+}

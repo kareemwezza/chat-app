@@ -1,6 +1,6 @@
 # ChatApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6. You have to add firebase config to `src/environments` file.
 
 ## Development server
 

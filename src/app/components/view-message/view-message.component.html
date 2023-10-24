@@ -1,0 +1,31 @@
+<div class="incoming_msg" *ngIf="message.senderId !== uid">
+    <div class="msg_img">
+        <img
+                src="https://ptetutorials.com/images/user-profile.png"
+                alt="sunil"
+        />
+    </div>
+    <div class="received_msg">
+        <div class="received_with_msg">
+            <p>{{ message.content }}</p>
+            <span class="time_date">
+                {{ message.timestamp | date: "dd MMM hh:mm" }}
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="outgoing_msg" *ngIf="message.senderId == uid">
+    <div class="msg_img">
+        <img
+                src="https://ptetutorials.com/images/user-profile.png"
+                alt="sunil"
+        />
+    </div>
+    <div class="sent_msg">
+        <p>{{ message.content }}</p>
+        <span class="time_date">
+            {{ message.timestamp | date: "dd MMM hh:mm" }}
+        </span>
+    </div>
+</div>

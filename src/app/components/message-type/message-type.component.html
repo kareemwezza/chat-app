@@ -1,0 +1,19 @@
+<div class="message_type">
+    <div class="message_type_input">
+        <input
+                matInput
+                type="text"
+                placeholder="Type a message"
+                [(ngModel)]="message"
+                (keydown.enter)="sendMessage()"
+        />
+        <button
+                class="message_send_btn"
+                type="button"
+                (click)="sendMessage()"
+                (keydown.enter)="sendMessage()"
+        >
+            <mat-icon matSuffix>send</mat-icon>
+        </button>
+    </div>
+</div>

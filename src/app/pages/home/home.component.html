@@ -1,0 +1,53 @@
+<mat-drawer-container class="home-container" autosize>
+    <mat-drawer mode="side" opened>
+        <div class="sidenav">
+            <mat-form-field>
+                <input matInput placeholder="Search Chats"/>
+            </mat-form-field>
+
+            <mat-list cdk-scrollable *ngIf="authUser && authUser.chats">
+                <mat-list-item (click)="selectChat(chat.chatId)"  *ngFor="let chat of authUser.chats">
+                    <mat-icon matListItemIcon>{{ chat.name }}</mat-icon>
+                    <h3 matListItemTitle>{{ chat.name }}</h3>
+                    <p matListItemMeta>
+                        <span>date</span>
+                    </p>
+                </mat-list-item>
+            </mat-list>
+
+            <button mat-fab extended color="primary" (click)="openDialog(userList)">
+                <mat-icon matSuffix>person_add</mat-icon>
+                Add New User
+            </button>
+        </div>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        <div class="messages">
+
+            <ng-container *ngIf="showMessages">
+                <div #chatHistory class="chat-history">
+                    <div *ngFor="let m of messages; let i = index">
+                        <app-view-message [message]="m" [uid]="authUser.uid"></app-view-message>
+                    </div>
+                </div>
+                <app-message-type (onMessageSent)="handleSendMessage($event)"></app-message-type>
+            </ng-container>
+        </div>
+    </div>
+
+</mat-drawer-container>
+
+<ng-template #userList>
+    <mat-list role="list" *ngIf="users">
+        <div *ngIf="!users.length">No Users Found</div>
+        <mat-list-item
+                role="listitem"
+                *ngFor="let user of users "
+                (click)="selectUser(user)">
+            <div class="user-item">
+                {{ user.name }}
+            </div>
+        </mat-list-item>
+    </mat-list>
+</ng-template>

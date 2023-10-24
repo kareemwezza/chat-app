@@ -1,0 +1,31 @@
+<app-form-container title="Login">
+    <form class="login-form" [formGroup]="formGroup" (ngSubmit)="submitForm()">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="example@example.com" formControlName="email">
+            <mat-error *ngIf="formGroup.controls['email'].hasError('required')">Email is required.</mat-error>
+            <mat-error *ngIf="formGroup.controls['email'].dirty && formGroup.controls['email'].hasError('email')">
+                please enter a valid email.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="*******"
+                   formControlName="password">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hidePassword">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="formGroup.controls['password'].hasError('required')">Password is required.</mat-error>
+            <mat-error
+                    *ngIf="formGroup.controls['password'].dirty && formGroup.controls['password'].hasError('minlength')">
+                you password must be 6 characters at least.
+            </mat-error>
+        </mat-form-field>
+
+        <p class="register">Don't Have an account? <a class="link" routerLink="/register">Create one.</a></p>
+
+        <button mat-stroked-button type="submit" [disabled]="!formGroup.valid">Submit</button>
+    </form>
+</app-form-container>

@@ -1,0 +1,19 @@
+.auth-card {
+  max-width: 400px;
+  margin: 5rem auto;
+  padding-bottom: 50px;
+  padding-top: 50px;
+
+  .form-header {
+    justify-content: center;
+    color: #fff;
+  }
+
+  ::ng-deep form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+}

@@ -1,0 +1,16 @@
+<mat-toolbar>
+    <span>Chat APP</span>
+    <div class="spacer"></div>
+    <ng-container *ngIf="!isLoggedIn; else privateNav">
+        <a mat-button routerLink="/login">Login</a>
+        <a mat-button routerLink="/register">Register</a>
+    </ng-container>
+
+
+</mat-toolbar>
+
+
+<ng-template #privateNav>
+    <a mat-button routerLink="/home">Home</a>
+    <a mat-button (click)="logout()">Logout</a>
+</ng-template>
